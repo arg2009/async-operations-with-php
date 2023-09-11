@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    restart: on-failure
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost/_ignition/health-check" ]
+      interval: 5s
+      retries: 6
+      timeout: 5s
+    ports:
+      - '${APP_PORT:-8000}:80'
+    networks:
+      - app
+
+networks:
+  app:
