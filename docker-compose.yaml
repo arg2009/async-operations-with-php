@@ -4,7 +4,6 @@ services:
     build:
       context: .
       dockerfile: ./docker/Dockerfile
-    restart: on-failure
     healthcheck:
       test: [ "CMD", "curl", "-f", "http://localhost/_ignition/health-check" ]
       interval: 5s
@@ -12,6 +11,10 @@ services:
       timeout: 5s
     ports:
       - '${APP_PORT:-8000}:80'
+    environment:
+      APP_ENV: "local"
+      APP_KEY: "base64:YqiENaRpmIOv6yCY2RcK0iqmIQvlXLj01AzpUgD54Tw="
+      APP_DEBUG: "true"
     networks:
       - app
 
