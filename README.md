@@ -3,10 +3,10 @@
 
 ## Introduction
 
-As we all know PHP by nature is not asynchronous and as such tasks that require network IO operations such and
+As we all know PHP by nature is not asynchronous and as such tasks that require network IO operations such as
 web requests to other services, result in blocking logic. Generally in PHP we would resolve such requirements 
 by utilising queue workers so that such operations can run in the background thereby allowing us to 
-continue with and complete the rest of the request-response lifecycle.
+continue with, and complete, the rest of the request-response lifecycle.
 
 But what if you require async tasks to be performed within the request-response lifecycle?  
 What if your response depended on the outcome of said async tasks?
