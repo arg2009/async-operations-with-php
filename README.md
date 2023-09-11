@@ -28,8 +28,11 @@ GET /api/async-dashboard
 
 ## Usage
 
-Start docker image
+Clone this repository and start the docker image
+
 ```bash
+git clone https://github.com/arg2009/async-operations-with-php.git && \
+cd async-operations-with-php && \
 docker compose up -d
 ```
 
